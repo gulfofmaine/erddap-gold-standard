@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  erddap:
+    image: axiom/docker-erddap:1.82
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./erddap/conf/setenv.sh:/usr/local/tomcat/bin/setenv.sh
+      - ./erddap/conf/robots.txt:/usr/local/tomcat/webapps/ROOT/robots.txt
+      - ./erddap/content:/usr/local/tomcat/content/erddap
+      - ./erddap/data:/erddapData
+      - ./datasets:/datasets
